@@ -17,7 +17,7 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| Default Database Connection Name
+	| Default Database Connectiomyn Name
 	|--------------------------------------------------------------------------
 	|
 	| Here you may specify which of the database connections below you wish
@@ -54,10 +54,10 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'forge'),
-			'username'  => env('DB_USERNAME', 'forge'),
-			'password'  => env('DB_PASSWORD', ''),
+			'host'      => '127.0.0.1',
+			'database'  => 'organisms',
+			'username'  => 'dianagamez2809',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
