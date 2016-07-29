@@ -1,3 +1,5 @@
+// Contact Form Scripts
+
 $(function() {
 
     $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
@@ -50,7 +52,7 @@ $(function() {
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
-            })
+            });
         },
         filter: function() {
             return $(this).is(":visible");
