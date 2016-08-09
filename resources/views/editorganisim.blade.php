@@ -1,4 +1,4 @@
-@extends('layout2')
+@extends('layout3')
 
 @section('content')
     <!-- Header -->
@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Upload organism</h2>
+                    <h2 class="section-heading">Edit organism</h2>
                 </div>
             </div>
             
@@ -25,7 +25,7 @@
                 <!-- if there are creation errors, they will show here -->
                 {!! Html::ul($errors->all()) !!}
                 
-                {!! Form::open(array('url' => 'organism')) !!}
+                {!! Form::model($organism, array('route' => array('organism.update', $organism->id), 'method' => 'PUT')) !!}
                 
                     <div class="form-group">
                         {!! Form::label('organismName', 'Name') !!}
@@ -33,13 +33,13 @@
                     </div>
                 
                     <div class="form-group">
-                        {!! Form::label('accessNumber', 'Number') !!}
+                        {!! Form::label('accessionNumber', 'Number') !!}
                         {!! Form::text('accessNumber', Input::old('accessNumber'), array('class' => 'form-control')) !!}
                     </div>
                     
                     <div class="row" style="margin-top:10px">
                         <div class="col-lg-12 text-center">
-                            {!! Form::submit('Create', array('class' => 'btn btn-xl')) !!}
+                            {!! Form::submit('Edit', array('class' => 'btn btn-xl')) !!}
                         </div>
                     </div>
                 

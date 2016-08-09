@@ -53,16 +53,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li >
-                        {!! Html::link('toxicity', 'Toxicity') !!}
+                        {!! Html::link('toxicitylog', 'Toxicity') !!}
                     </li>
                     <li>
-                        {!! Html::link('organism', 'Organism') !!}
+                        {!! Html::link('organismlog', 'Organism') !!}
                     </li>
                     <li>
-                        {!! Html::link('metabolites', 'Metabolites') !!}
+                        {!! Html::link('metaboliteslog', 'Metabolites') !!}
                     </li>
                     <li >
-                        {!! Html::link('login', 'Login', ['class'=>"page-scroll btn btn-xl", "style" => "background-color:#3296b1;border-color:#3296b1"]) !!}
+                        {!! Html::link('logout', 'Logout', ['class'=>"page-scroll btn btn-xl", "style" => "background-color:#3296b1;border-color:#3296b1"]) !!}
                     </li>
                 </ul>
             </div>

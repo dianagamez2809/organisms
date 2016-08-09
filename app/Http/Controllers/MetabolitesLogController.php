@@ -16,7 +16,7 @@ use App\Metabolite;
 use App\Organism;
 use Response;
 
-class MetabolitesController extends Controller {
+class MetabolitesLogController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -28,7 +28,7 @@ class MetabolitesController extends Controller {
 		$metabolites = DB::table('metabolites')->get();
 
         // load the view and pass the nerds
-        return View::make('metabolites')
+        return View::make('metaboliteslog')
             ->with('metabolites', $metabolites);
 	}
 
@@ -43,7 +43,7 @@ class MetabolitesController extends Controller {
 		$toxicities = Toxicity::select(DB::raw("CONCAT(description,' e:', environment, ' a:', animals, ' h:', humans) AS tox, id"))->lists('tox', 'id');
 		
 		//return Response::json($toxicities);
-		return View::make('uploadmetabolite')
+		return View::make('uploadmetabolitelog')
             ->with(array('organisms' => $organisms, 'toxicities' => $toxicities));
 	}
 
@@ -62,7 +62,7 @@ class MetabolitesController extends Controller {
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('metabolites/create')
+            return Redirect::to('metaboliteslog/create')
                 ->withErrors($validator);
         } else {
             // store
@@ -73,7 +73,7 @@ class MetabolitesController extends Controller {
             $metabolite->idOrganism		= Input::get('idOrganism');
             $metabolite->criteria		= Input::get('criteria');
             $metabolite->completeness		= Input::get('completeness');
-            $metabolite->valid		= '0';
+            $metabolite->valid		= '1';
             $metabolite->link		= Input::get('link');
             $metabolite->dnaRegion	= Input::get('dnaRegion');
             $metabolite->percentage = Input::get('percentage');
@@ -81,7 +81,7 @@ class MetabolitesController extends Controller {
 
             // redirect
             Session::flash('message', 'Successfully created');
-            return Redirect::to('metabolites');
+            return Redirect::to('metaboliteslog');
         }
 	}
 
@@ -109,7 +109,7 @@ class MetabolitesController extends Controller {
 		$toxicities = Toxicity::select(DB::raw("CONCAT(description,' e:', environment, ' a:', animals, ' h:', humans) AS tox, id"))->lists('tox', 'id');
 
         // show the edit form and pass the nerd
-        return View::make('editmetabolite')
+        return View::make('editmetabolitelog')
         	->with(array('organisms' => $organisms, 'toxicities' => $toxicities, 'metabolite' => $metabolite));
 	}
 
@@ -129,7 +129,7 @@ class MetabolitesController extends Controller {
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('metabolites/create')
+            return Redirect::to('metaboliteslog/create')
                 ->withErrors($validator);
         } else {
             // store
@@ -147,7 +147,7 @@ class MetabolitesController extends Controller {
 
             // redirect
             Session::flash('message', 'Successfully edited');
-            return Redirect::to('metabolites');
+            return Redirect::to('metaboliteslog');
         }
 	}
 

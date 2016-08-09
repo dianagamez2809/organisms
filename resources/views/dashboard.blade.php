@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutlog')
 
 @section('content')
     <!-- Header -->

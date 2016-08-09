@@ -1,4 +1,4 @@
-@extends('layout2')
+@extends('layout3')
 
 @section('content')
     <!-- Header -->
@@ -25,11 +25,11 @@
                 <!-- if there are creation errors, they will show here -->
                 {!! Html::ul($errors->all()) !!}
                 
-                {!! Form::open(array('url' => 'metabolites')) !!}
+                {!! Form::model($metabolite, array('route' => array('metabolites.update', $metabolite->id), 'method' => 'PUT'))  !!}
                 
                     <div class="form-group">
                         {!! Form::label('idOrganism', 'Organism') !!}
-                        {!! Form::select('idOrganism', $organisms, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('idOrganism', $organisms, Input::old($metabolite->idOrganism), ['class' => 'form-control']) !!}
                     </div>
                 
                     <div class="form-group">
@@ -44,7 +44,7 @@
                     
                     <div class="form-group">
                         {!! Form::label('idToxicity', 'Toxicity') !!}
-                        {!! Form::select('idToxicity', $toxicities, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('idToxicity', $toxicities, Input::old($metabolite->idToxicity), ['class' => 'form-control']) !!}
                     </div>
                     
                     <div class="form-group">
@@ -77,7 +77,7 @@
                     
                     <div class="row" style="margin-top:10px">
                         <div class="col-lg-12 text-center">
-                            {!! Form::submit('Create', array('class' => 'btn btn-xl')) !!}
+                            {!! Form::submit('Edit', array('class' => 'btn btn-xl')) !!}
                         </div>
                     </div>
                 

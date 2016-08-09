@@ -92,7 +92,11 @@ class ToxicityController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$toxicity = Toxicity::find($id);
+
+        // show the edit form and pass the nerd
+        return View::make('edittoxicity')
+            ->with('toxicity', $toxicity);
 	}
 
 	/**
@@ -103,7 +107,30 @@ class ToxicityController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$rules = array(
+            'nivel'       => 'required',
+            'description'      => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('toxicity/create')
+                ->withErrors($validator);
+        } else {
+            // store
+            $toxicity = Toxicity::find($id);
+            $toxicity->nivel    		= Input::get('nivel');
+            $toxicity->description      = Input::get('description');
+            $toxicity->environment		= Input::get('environment');
+            $toxicity->animals		= Input::get('animals');
+            $toxicity->humans		= Input::get('humans');
+            $toxicity->save();
+
+            // redirect
+            Session::flash('message', 'Successfully updated');
+            return Redirect::to('toxicity');
+        }
 	}
 
 	/**

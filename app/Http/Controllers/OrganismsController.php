@@ -48,7 +48,7 @@ class OrganismsController extends Controller {
 	{
 		$rules = array(
             'organismName'       => 'required',
-            'accessionNumber'      => 'required'
+            'accessNumber'      => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
 
@@ -60,7 +60,7 @@ class OrganismsController extends Controller {
             // store
             $organism = new Organism;
             $organism->organismName       = Input::get('organismName');
-            $organism->accessNumber      = Input::get('accessionNumber');
+            $organism->accessNumber      = Input::get('accessNumber');
             $organism->valid			= '1';
             $organism->save();
 
@@ -89,7 +89,11 @@ class OrganismsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$organism = Organism::find($id);
+
+        // show the edit form and pass the nerd
+        return View::make('editorganisim')
+            ->with('organism', $organism);
 	}
 
 	/**
@@ -100,7 +104,27 @@ class OrganismsController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$rules = array(
+            'organismName'       => 'required',
+            'accessNumber'      => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('organism/create')
+                ->withErrors($validator);
+        } else {
+            // store
+            $organism = Organism::find($id);
+            $organism->organismName       = Input::get('organismName');
+            $organism->accessNumber      = Input::get('accessNumber');
+            $organism->save();
+
+            // redirect
+            Session::flash('message', 'Successfully edited');
+            return Redirect::to('organism');
+        }
 	}
 
 	/**

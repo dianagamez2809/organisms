@@ -25,36 +25,83 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Services</h2>
+                    <h2 class="section-heading">About</h2>
                 </div>
             </div>
             <div class="row text-center">
+                <div>
+                    
+                    
+                    <p class="text-muted">This risk assessment tool – CARE (Chassis Assessment & Risk Evaluation) – is an aid that complements the existing risk assessment methods. Based on the antiSMASH platform, it consists on the toxicity assessment of the secondary metabolites from annotated non-model microorganisms. 
+The toxicity criterion considers human health, animal health and the environment and is as follows:</p>
+                
+                <img src="img/scale.png" width="50%"></img>
+                </div>
+                
+            </div>
+
+        </div>
+        </br></br></br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Microorganisms</h2>
+                </div>
+            </div>
+            
+            <div class="row text-center">
                 <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Toxicity</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <a href="http://org-dianagamez2809.c9users.io/organisms/resources/views/infoS.blade.php"><h4 class="service-heading"><i>Synechocystis</i> sp. PCC 6803</h4></a>
                 </div>
                 <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Organism</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <a href="http://org-dianagamez2809.c9users.io/organisms/resources/views/infoR.blade.php"><h4 class="service-heading"><i>Rhodococcus jostii</i> RHA1</h4></i>
                 </div>
                 <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Metabolites</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <a href="http://org-dianagamez2809.c9users.io/organisms/resources/views/infoP.blade.php"><h4 class="service-heading"><i>Penicillium roqueforti</i></h4></a>
+                    
                 </div>
             </div>
         </div>
+        
+        
+        
+        </br></br></br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Useful links</h2>
+                </div>
+            </div>
+            
+            <!--<div class="row text-center"> -->
+                <div class="col-md-12">
+                    <h4 class="service-heading">WHO</h4>
+                    <a href="http://www.who.int/csr/resources/publications/biosafety/WHO_CDS_CSR_LYO_2004_11/en/"><p>WHO</p></a>
+                    <p>Proof</p>
+                </div>
+                <div class="col-md-12">
+                    <a href="https://www.oecd.org/sti/biotech/2375496.pdf"><h4 class="service-heading">OECD</h4></i>
+                </div>
+                <div class="col-md-12">
+                    <a href="http://www.biosafetyprotocol.be/UNEPGuid/Contents.html"><h4 class="service-heading"><i>UNEP</i></h4></a>
+                </div>
+                <div class="col-md-12">
+                    <p>Example</p>
+                </div>
+            <!--</div> -->
+            
+                <div class="col-md-12">
+                    <a href="http://www.hse.gov.uk/biosafety/gmo/acgm/acgmcomp/"><h4 class="service-heading">UK</h4></a>
+                </div>
+                <div class="col-md-12">
+                    <a href="http://www.biosafety.be/GB/Dir.Eur.GB/Cont.Use/2000_608/2000_608_T.html"><h4 class="service-heading">EU</h4></i>
+                </div>
+                <div class="col-md-12">
+                    <a href="http://www.cdc.gov/biosafety/"><h4 class="service-heading"><i>USA</i></h4></a>
+
+        </div>
+        
+        
     </section>
 
 

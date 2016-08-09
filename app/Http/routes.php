@@ -21,8 +21,21 @@ Route::resource('organism', 'OrganismsController');
 
 Route::resource('metabolites', 'MetabolitesController');
 
+Route::resource('dashboard', 'DashboardController');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+
+
+Route::resource('toxicitylog', 'ToxicityLogController');
+
+Route::resource('organismlog', 'OrganismsLogController');
+
+Route::resource('metaboliteslog', 'MetabolitesLogController');
+
+
+
+
+Route::get('login', array('uses' => 'HomeController@showLogin'));
+
+// route to process the form
+Route::post('login', array('uses' => 'HomeController@doLogin'));
+Route::get('logout', array('uses' => 'HomeController@doLogout'));
