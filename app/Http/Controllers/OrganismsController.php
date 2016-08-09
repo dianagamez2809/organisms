@@ -61,7 +61,7 @@ class OrganismsController extends Controller {
             $organism = new Organism;
             $organism->organismName       = Input::get('organismName');
             $organism->accessNumber      = Input::get('accessNumber');
-            $organism->valid			= '1';
+            $organism->valid			= '0';
             $organism->save();
 
             // redirect

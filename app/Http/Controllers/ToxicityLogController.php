@@ -5,7 +5,16 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class ToxicityLogController extends Controller {
+use DB;
+use View;
+use Validator;
+use Input;
+use Redirect;
+use App\Toxicity;
+use Session;
+
+
+class ToxicityController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +23,11 @@ class ToxicityLogController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$toxicities = DB::table('toxicity')->get();
+
+        // load the view and pass the nerds
+        return View::make('toxicitylog')
+            ->with('toxicities', $toxicities);
 	}
 
 	/**
@@ -24,7 +37,7 @@ class ToxicityLogController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return View::make('uploadtoxicitylog');
 	}
 
 	/**
@@ -34,7 +47,30 @@ class ToxicityLogController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$rules = array(
+            'nivel'       => 'required',
+            'description'      => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('toxicitylog/create')
+                ->withErrors($validator);
+        } else {
+            // store
+            $toxicity = new Toxicity;
+            $toxicity->nivel    		= Input::get('nivel');
+            $toxicity->description      = Input::get('description');
+            $toxicity->environment		= Input::get('environment');
+            $toxicity->animals		= Input::get('animals');
+            $toxicity->humans		= Input::get('humans');
+            $toxicity->save();
+
+            // redirect
+            Session::flash('message', 'Successfully created');
+            return Redirect::to('toxicitylog');
+        }
 	}
 
 	/**
@@ -56,7 +92,11 @@ class ToxicityLogController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$toxicity = Toxicity::find($id);
+
+        // show the edit form and pass the nerd
+        return View::make('edittoxicitylog')
+            ->with('toxicity', $toxicity);
 	}
 
 	/**
@@ -67,7 +107,30 @@ class ToxicityLogController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$rules = array(
+            'nivel'       => 'required',
+            'description'      => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('toxicitylog/create')
+                ->withErrors($validator);
+        } else {
+            // store
+            $toxicity = Toxicity::find($id);
+            $toxicity->nivel    		= Input::get('nivel');
+            $toxicity->description      = Input::get('description');
+            $toxicity->environment		= Input::get('environment');
+            $toxicity->animals		= Input::get('animals');
+            $toxicity->humans		= Input::get('humans');
+            $toxicity->save();
+
+            // redirect
+            Session::flash('message', 'Successfully updated');
+            return Redirect::to('toxicitylog');
+        }
 	}
 
 	/**
